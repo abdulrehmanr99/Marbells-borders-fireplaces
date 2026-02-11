@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Victorian – Luxury Marble Fireplace Showcase</title>
+  
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    /* CSS Variables for easy customization */
+    :root {
+      --primary-gold: #c8a25a;
+      --dark-gold: #8a5a2b;
+      --light-cream: #f5efe9;
+      --medium-cream: #d9cfc4;
+      --dark-brown: #2b1b12;
+      --medium-brown: #4a2c1f;
+      --text-dark: #2e2e2e;
+      --text-light: #fff;
+      --shadow-light: rgba(0,0,0,0.12);
+      --shadow-medium: rgba(0,0,0,0.15);
+      --shadow-dark: rgba(0,0,0,0.2);
+    }
+    
+    * {
+      box-sizing: border-box;
+    }
+    
+    body {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      background: linear-gradient(135deg, var(--light-cream), var(--medium-cream));
+      color: var(--text-dark);
+      line-height: 1.6;
+    }
+    
+    /* Header with enhanced styling */
+    header {
+      text-align: center;
+      padding: 50px 20px;
+      background: linear-gradient(rgba(43, 27, 18, 0.9), rgba(43, 27, 18, 0.7)), 
+                  url('https://images.unsplash.com/photo-1580538730205-3e58d878a3f3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+      background-size: cover;
+      background-position: center;
+      color: var(--text-light);
+      animation: fadeDown 1.2s ease;
+      border-bottom: 5px solid var(--primary-gold);
+    }
+    
+    header h1 {
+      font-size: 2.8rem;
+      letter-spacing: 1px;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    
+    .highlight {
+      color: var(--primary-gold);
+      font-weight: bold;
+    }
+    
+    header p {
+      max-width: 900px;
+      margin: 15px auto 0;
+      font-size: 1.2rem;
+      opacity: 0.95;
+    }
+    
+    /* Container for all sections */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Section styling with improved visual hierarchy */
+    section {
+      margin: 30px auto;
+      padding: 30px;
+      background: rgba(255,255,255,0.95);
+      border-radius: 14px;
+      box-shadow: 0 15px 35px var(--shadow-light);
+      animation: fadeUp 1.2s ease;
+      border-left: 5px solid var(--primary-gold);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary-gold), var(--dark-gold));
+    }
+    
+    h2 {
+      font-size: 1.9rem;
+      margin-bottom: 20px;
+      position: relative;
+      color: var(--dark-brown);
+    }
+    
+    h2::after {
+      content: '';
+      width: 70px;
+      height: 3px;
+      background: linear-gradient(to right, var(--primary-gold), var(--dark-gold));
+      display: block;
+      margin-top: 10px;
+      animation: glowLine 2s infinite alternate;
+    }
+    
+    /* Improved list styling */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    li {
+      margin: 16px 0;
+      display: flex;
+      align-items: flex-start;
+      font-size: 1.1rem;
+      animation: fadeLeft 1.1s ease;
+      padding: 8px 0;
+      border-bottom: 1px dashed #e0d6cc;
+    }
+    
+    li:last-child {
+      border-bottom: none;
+    }
+    
+    li span {
+      font-size: 1.5rem;
+      margin-right: 15px;
+      min-width: 30px;
+      animation: iconGlow 1.6s infinite alternate;
+      color: var(--dark-gold);
+    }
+    
+    /* Enhanced marble grid with hover effects */
+    .marble-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    .marble-item {
+      background: linear-gradient(135deg, #fff, #f9f6f2);
+      border-radius: 10px;
+      padding: 15px;
+      text-align: center;
+      font-weight: bold;
+      box-shadow: 0 6px 18px var(--shadow-medium);
+      animation: fadeScale 1.2s ease;
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+    }
+    
+    .marble-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px var(--shadow-dark);
+      border-color: var(--primary-gold);
+    }
+    
+    .marble-item::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(to right, var(--primary-gold), var(--dark-gold));
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    
+    .marble-item:hover::before {
+      transform: translateY(0);
+    }
+    
+    /* Featured section styling */
+    .featured-section {
+      background: linear-gradient(135deg, rgba(200, 162, 90, 0.1), rgba(138, 90, 43, 0.05));
+      border-left: 5px solid var(--dark-gold);
+    }
+    
+    /* Call to action button */
+    .cta-button {
+      display: inline-block;
+      background: linear-gradient(to right, var(--primary-gold), var(--dark-gold));
+      color: white;
+      padding: 14px 30px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      margin-top: 15px;
+      transition: all 0.3s ease;
+      box-shadow: 0 6px 15px rgba(138, 90, 43, 0.3);
+      border: none;
+      cursor: pointer;
+      animation: pulse 2s infinite;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(138, 90, 43, 0.4);
+    }
+    
+    .cta-container {
+      text-align: center;
+      margin-top: 30px;
+    }
+    
+    /* Footer with improved styling */
+    footer {
+      background: linear-gradient(135deg, var(--dark-brown), var(--medium-brown));
+      color: var(--text-light);
+      text-align: center;
+      padding: 40px 20px;
+      margin-top: 50px;
+      animation: fadeUp 1.2s ease;
+      border-top: 5px solid var(--primary-gold);
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-bottom: 20px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      font-size: 1.1rem;
+    }
+    
+    .contact-item span {
+      font-size: 1.6rem;
+      margin-right: 12px;
+      animation: iconGlow 1.6s infinite alternate;
+      color: var(--primary-gold);
+    }
+    
+    .copyright {
+      margin-top: 20px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    /* Animations */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes fadeLeft {
+      from { opacity: 0; transform: translateX(-40px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes fadeScale {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    
+    @keyframes glowLine {
+      from { box-shadow: 0 0 6px var(--primary-gold); }
+      to { box-shadow: 0 0 16px var(--dark-gold); }
+    }
+    
+    @keyframes iconGlow {
+      from { text-shadow: 0 0 6px #ffae42; }
+      to { text-shadow: 0 0 16px #ff6a00; }
+    }
+    
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.03); }
+      100% { transform: scale(1); }
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.2rem;
+      }
+      
+      header p {
+        font-size: 1rem;
+      }
+      
+      section {
+        padding: 20px;
+        margin: 20px auto;
+      }
+      
+      .marble-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      }
+      
+      .contact-info {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      li {
+        font-size: 1rem;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      header {
+        padding: 30px 15px;
+      }
+      
+      header h1 {
+        font-size: 1.8rem;
+      }
+      
+      .marble-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      
+      .cta-button {
+        padding: 12px 25px;
+        font-size: 1rem;
+      }
+    }
+    
+    /* Modal for marble details */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.8);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+      animation: fadeUp 0.3s ease;
+    }
+    
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 500px;
+      width: 90%;
+      position: relative;
+      animation: fadeScale 0.4s ease;
+    }
+    
+    .close-modal {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--text-dark);
+    }
+    
+    .modal-title {
+      color: var(--dark-brown);
+      margin-bottom: 15px;
+      border-bottom: 2px solid var(--primary-gold);
+      padding-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1><span class="highlight">🔥 The Victorian</span> – Luxury Marble Fireplace Collection</h1>
+  <p>Premium fireplace and mosaic applications featuring 20 hand-selected natural marbles for indoor and covered outdoor luxury spaces.</p>
+</header>
+
+<div class="container">
+  <section class="featured-section">
+    <h2><i class="fas fa-gem"></i> Premium Marble Collection</h2>
+    <p>Our curated selection of the world's finest marbles, each uniquely suited for luxury fireplace applications.</p>
+    
+    <div class="marble-grid">
+      <div class="marble-item" data-marble="Carrara">Carrara</div>
+      <div class="marble-item" data-marble="Calacatta">Calacatta</div>
+      <div class="marble-item" data-marble="Statuario">Statuario</div>
+      <div class="marble-item" data-marble="Nero Marquina">Nero Marquina</div>
+      <div class="marble-item" data-marble="Emperador Dark">Emperador Dark</div>
+      <div class="marble-item" data-marble="Emperador Light">Emperador Light</div>
+      <div class="marble-item" data-marble="Crema Marfil">Crema Marfil</div>
+      <div class="marble-item" data-marble="Botticino">Botticino</div>
+      <div class="marble-item" data-marble="Thassos">Thassos</div>
+      <div class="marble-item" data-marble="Arabescato">Arabescato</div>
+      <div class="marble-item" data-marble="Rainforest Green">Rainforest Green</div>
+      <div class="marble-item" data-marble="Rainforest Brown">Rainforest Brown</div>
+      <div class="marble-item" data-marble="Rosso Levanto">Rosso Levanto</div>
+      <div class="marble-item" data-marble="Verde Alpi">Verde Alpi</div>
+      <div class="marble-item" data-marble="Pietra Grey">Pietra Grey</div>
+      <div class="marble-item" data-marble="Grey Bardiglio">Grey Bardiglio</div>
+      <div class="marble-item" data-marble="Makrana White">Makrana White</div>
+      <div class="marble-item" data-marble="Makrana Albeta">Makrana Albeta</div>
+      <div class="marble-item" data-marble="Black Galaxy">Black Galaxy</div>
+      <div class="marble-item" data-marble="Onyx">Onyx</div>
+    </div>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-star"></i> Features</h2>
+    <ul>
+      <li><span><i class="fas fa-fire"></i></span>Premium natural marble surfaces for fireplaces and mosaics</li>
+      <li><span><i class="fas fa-landmark"></i></span>Compatible with Victorian, classic, and modern designs</li>
+      <li><span><i class="fas fa-gem"></i></span>Luxury visual depth with natural stone veining</li>
+      <li><span><i class="fas fa-thermometer-half"></i></span>Suitable for decorative heat-resistant fireplace areas</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-question-circle"></i> What It Is</h2>
+    <ul>
+      <li><span><i class="fas fa-mountain"></i></span>Curated premium marble collection for fireplaces</li>
+      <li><span><i class="fas fa-fire"></i></span>Designed for surrounds, hearths, and mosaics</li>
+      <li><span><i class="fas fa-home"></i></span>Indoor and covered outdoor compatibility</li>
+      <li><span><i class="fas fa-chart-line"></i></span>Enhances architectural and interior value</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-tools"></i> Installation</h2>
+    <ul>
+      <li><span><i class="fas fa-screwdriver-wrench"></i></span>Installed by professional stone technicians</li>
+      <li><span><i class="fas fa-brick"></i></span>Mounted on heat-resistant backing surfaces</li>
+      <li><span><i class="fas fa-ruler-combined"></i></span>Precision cut for fireplace dimensions</li>
+      <li><span><i class="fas fa-spray-can-sparkles"></i></span>Sealed to protect from heat and staining</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-map-marker-alt"></i> Where to Install</h2>
+    <ul>
+      <li><span><i class="fas fa-couch"></i></span>Indoor living rooms and feature walls</li>
+      <li><span><i class="fas fa-umbrella"></i></span>Covered outdoor patios and luxury seating areas</li>
+      <li><span><i class="fas fa-hotel"></i></span>Hotel lobbies and luxury reception areas</li>
+      <li><span><i class="fas fa-building"></i></span>Corporate offices and executive boardrooms</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2><i class="fas fa-fire"></i> Why It Looks Exceptional</h2>
+    <ul>
+      <li><span><i class="fas fa-sparkles"></i></span>Natural marble veining enhances flame reflection</li>
+      <li><span><i class="fas fa-landmark"></i></span>Complements gas, electric, and steam fireplaces</li>
+      <li><span><i class="fas fa-lightbulb"></i></span>Adapts beautifully to indoor and outdoor lighting</li>
+      <li><span><i class="fas fa-crown"></i></span>Creates timeless luxury appeal</li>
+    </ul>
+  </section>
+
+  <div class="cta-container">
+    <a href="mailto:directorthevictorianltd@gmail.com?subject=Marble Fireplace Inquiry" class="cta-button">
+      <i class="fas fa-envelope"></i> Request a Free Consultation
+    </a>
+    <p style="margin-top: 10px; font-style: italic;">Get expert advice on selecting the perfect marble for your space</p>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-content">
+    <h3 style="color: var(--primary-gold); margin-bottom: 20px;">Contact The Victorian</h3>
+    
+    <div class="contact-info">
+      <div class="contact-item">
+        <span><i class="fas fa-envelope"></i></span>
+        <div>
+          <strong>Email:</strong><br>
+          <a href="mailto:directorthevictorianltd@gmail.com" style="color: var(--primary-gold); text-decoration: none;">
+            directorthevictorianltd@gmail.com
+          </a>
+        </div>
+      </div>
+      
+      <div class="contact-item">
+        <span><i class="fas fa-phone"></i></span>
+        <div>
+          <strong>Phone:</strong><br>
+          <a href="tel:+923342073755" style="color: var(--primary-gold); text-decoration: none;">
+            (+92) 334-207-3755
+          </a>
+        </div>
+      </div>
+      
+      <div class="contact-item">
+        <span><i class="fas fa-clock"></i></span>
+        <div>
+          <strong>Business Hours:</strong><br>
+          Mon-Sat: 9am-6pm
+        </div>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      &copy; 2023 The Victorian Ltd. | Luxury Marble Fireplace Specialists
+    </div>
+  </div>
+</footer>
+
+<!-- Modal for marble details -->
+<div class="modal" id="marbleModal">
+  <div class="modal-content">
+    <span class="close-modal" id="closeModal">&times;</span>
+    <h3 class="modal-title" id="modalMarbleName">Marble Details</h3>
+    <div id="modalMarbleContent">
+      <p>Select a marble from the grid to view detailed information about its properties, origin, and recommended applications.</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Modal functionality for marble details
+  document.addEventListener('DOMContentLoaded', function() {
+    const modal = document.getElementById('marbleModal');
+    const closeModal = document.getElementById('closeModal');
+    const modalMarbleName = document.getElementById('modalMarbleName');
+    const modalMarbleContent = document.getElementById('modalMarbleContent');
+    
+    // Marble information database
+    const marbleInfo = {
+      'Carrara': {
+        origin: 'Italy',
+        description: 'Classic white marble with subtle grey veining, prized for its timeless elegance.',
+        bestFor: 'Traditional and contemporary fireplaces, especially in minimalist designs.'
+      },
+      'Calacatta': {
+        origin: 'Italy',
+        description: 'Luxurious white marble with bold, dramatic veining in gold and grey tones.',
+        bestFor: 'Statement fireplace surrounds in high-end residential and commercial spaces.'
+      },
+      'Nero Marquina': {
+        origin: 'Spain',
+        description: 'Deep black marble with striking white veining, creating dramatic contrast.',
+        bestFor: 'Modern fireplace designs where contrast and drama are desired.'
+      },
+      'Emperador Dark': {
+        origin: 'Spain',
+        description: 'Rich brown marble with lighter veining and occasional white streaks.',
+        bestFor: 'Traditional and rustic fireplace designs, adding warmth to any space.'
+      },
+      'Onyx': {
+        origin: 'Various',
+        description: 'Semi-translucent stone with stunning banding, available in various colors.',
+        bestFor: 'Backlit fireplace features and luxury statement pieces.'
+      }
+      // Additional marble details can be added here
+    };
+    
+    // Add click event to all marble items
+    document.querySelectorAll('.marble-item').forEach(item => {
+      item.addEventListener('click', function() {
+        const marbleName = this.getAttribute('data-marble');
+        modalMarbleName.textContent = marbleName;
+        
+        if (marbleInfo[marbleName]) {
+          const info = marbleInfo[marbleName];
+          modalMarbleContent.innerHTML = `
+            <p><strong>Origin:</strong> ${info.origin}</p>
+            <p><strong>Description:</strong> ${info.description}</p>
+            <p><strong>Best For:</strong> ${info.bestFor}</p>
+            <p style="margin-top: 15px; font-style: italic; color: #8a5a2b;">
+              This marble is available for fireplace surrounds, hearths, and mosaic applications.
+            </p>
+          `;
+        } else {
+          modalMarbleContent.innerHTML = `
+            <p>${marbleName} is a premium natural marble selected for its durability, beauty, and heat-resistant properties. Perfect for luxury fireplace applications.</p>
+            <p style="margin-top: 15px; font-style: italic; color: #8a5a2b;">
+              Contact us for specific information about ${marbleName} marble.
+            </p>
+          `;
+        }
+        
+        modal.style.display = 'flex';
+      });
+    });
+    
+    // Close modal events
+    closeModal.addEventListener('click', function() {
+      modal.style.display = 'none';
+    });
+    
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+    
+    // Add hover effect to contact items
+    document.querySelectorAll('.contact-item a').forEach(link => {
+      link.addEventListener('mouseover', function() {
+        this.style.textDecoration = 'underline';
+      });
+      
+      link.addEventListener('mouseout', function() {
+        this.style.textDecoration = 'none';
+      });
+    });
+  });
+</script>
+
+</body>
+</html>
